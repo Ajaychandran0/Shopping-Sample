@@ -1,0 +1,48 @@
+<section>
+    <div class="container">
+
+         <div class="row mt-4">
+            <a href="/admin/add-user" class="btn btn-success ml-auto">Add User</a>
+        </div>
+
+        <div>
+            <br>
+            <input type='text' id='txt_searchall'  placeholder='search users'>&nbsp;
+            <br>
+        </div>
+
+       
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.fName}}</td>
+                    <td>{{this.lName}}</td>
+                    <td>{{this.Email}}</td>
+                    
+                    <input type="hidden" name="id" value="{{this._id}}">                    
+                    <td><a href="/admin/edit-user/{{this._id}}" class="btn btn-success">Edit</a></td>
+                    <td><a href="/admin/delete-user/{{this._id}}" class="btn btn-danger">Delete</a></td>
+
+                </tr>
+
+                {{/each}}
+
+                <tr class='notfound'>
+                    <td colspan='4'>No record found</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</section>
